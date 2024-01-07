@@ -1,9 +1,10 @@
 fileFormatVersion: 2
-guid: 07026932ca7196240bae6b69ec4fc3fb
+guid: fd76b1ca5ab9b4587b40968f7637fec1
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - groundTile: {fileID: 8026657073056404924, guid: 477f97a9bc42ef94188671c3aa9993c5, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
