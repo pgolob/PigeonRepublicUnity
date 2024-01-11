@@ -19,28 +19,27 @@ public class PigeonController : MonoBehaviour
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
-        // Handle horizontal and vertical movements
+        // horizontal and vertical movements
         Vector3 movementHorizontal = new Vector3(0.0f, 0.0f, moveHorizontal);
         Vector3 movementVertical = new Vector3(0.0f, moveVertical, 0.0f);
         transform.Translate((movementHorizontal + movementVertical) * speed * Time.deltaTime, Space.World);
 
-        // Calculate combined tilt
+        // combined tilt
         float horizontalTilt = moveHorizontal * tiltAngle;
         float verticalTilt = moveVertical * tiltAngle;
         
         Quaternion targetRotation = Quaternion.Euler(horizontalTilt - 90, 0, -90);
         
-        // Apply the combined rotation
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 2.0f);
 
-        // Return to original height if no vertical input
+        // Return to original height
         if (Mathf.Abs(moveVertical) < 0.001f)
         {
             Vector3 returnPosition = new Vector3(transform.position.x, originalHeight, transform.position.z);
             transform.position = Vector3.Lerp(transform.position, returnPosition, Time.deltaTime * speed);
         }
 
-        // Reset to upright rotation if no input
+        // Reset tilt
         if (Mathf.Abs(moveVertical) < 0.001f && Mathf.Abs(moveHorizontal) < 0.001f)
         {
             Quaternion uprightRotation = Quaternion.Euler(-90, -90, 0);

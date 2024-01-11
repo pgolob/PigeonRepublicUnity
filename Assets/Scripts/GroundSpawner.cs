@@ -10,6 +10,10 @@ public class GroundSpawner : MonoBehaviour
     public void SpawnTile()
     {
         GameObject temp = Instantiate(groundTile, nextSpawnPoint, Quaternion.identity);
+        BoxCollider collider = temp.AddComponent<BoxCollider>();
+        collider.isTrigger = false;
+        collider.size = new Vector3(150, 1, 10);
+        collider.center = new Vector3(40, -60, 4);
         nextSpawnPoint = temp.transform.GetChild(1).transform.position;
     }
     // Start is called before the first frame update
