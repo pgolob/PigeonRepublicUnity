@@ -13,16 +13,11 @@ public class GroundSpawner : MonoBehaviour
         nextSpawnPoint = temp.transform.GetChild(1).transform.position;
     }
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         for(int i = 0; i < 5; i++){
             SpawnTile();
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
