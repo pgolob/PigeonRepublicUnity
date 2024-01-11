@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.7234864, g: 0.67854315, b: 0.6812405, a: 1}
+  m_IndirectSpecularColor: {r: 0.7234863, g: 0.67854303, b: 0.68124014, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -273,6 +273,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GroundTile
       objectReference: {fileID: 0}
+    - target: {fileID: 8697284313419825781, guid: 7175199231dc627458fb27aa66341971, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -335,7 +339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 595397f9f85b4416bb37bd9e7aad203b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  speed: 10
 --- !u!1 &1791150162
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,9 +366,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1791150162}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.34866217, y: -0.0080727935, z: 0.007425039, w: 0.93718433}
-  m_LocalPosition: {x: 20.7, y: -181, z: -418.5}
-  m_LocalScale: {x: 0.84973997, y: 0.8497399, z: 0.84974}
+  m_LocalRotation: {x: 0.34866217, y: -0.008072734, z: 0.0074250465, w: 0.93718433}
+  m_LocalPosition: {x: 20.999943, y: -172.69997, z: -436.99994}
+  m_LocalScale: {x: 0.84974, y: 0.84974015, z: 0.84974027}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 543450652025887732}
@@ -410,7 +414,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 47.17621
+  field of view: 47
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -428,6 +432,37 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!1 &1901856915
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1901856916}
+  m_Layer: 0
+  m_Name: PoopSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1901856916
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901856915}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.5068737, y: 0.49328578, z: 0.5006397, w: 0.49910742}
+  m_LocalPosition: {x: -0.23531538, y: -1.0592119, z: -2.3536432}
+  m_LocalScale: {x: 4.569505, y: 4.569505, z: 4.569505}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5745207018520052301}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &191808746675873242
 GameObject:
   m_ObjectHideFlags: 0
@@ -481,6 +516,7 @@ GameObject:
   m_Component:
   - component: {fileID: 543450652025887732}
   - component: {fileID: 1654635216}
+  - component: {fileID: 919132147481395535}
   m_Layer: 0
   m_Name: golob_star
   m_TagString: Untagged
@@ -488,6 +524,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &919132147481395535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132147481395534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a705717af7a6d44f0978c98a211f62fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poopPrefab: {fileID: 8536905115861715751, guid: dd30f1b6248764bbab6a7bc17f156ed1, type: 3}
+  poopMarkPrefab: {fileID: 4071233233752237376, guid: c7701ce380f78428f93be0e0a5351ec6, type: 3}
+  poopSpawnPoint: {fileID: 1901856916}
+  poopForce: 20
+  poopForwardForce: 1
 --- !u!23 &2460510804637943309
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -640,6 +693,7 @@ Transform:
   m_Children:
   - {fileID: 5816895614965707699}
   - {fileID: 7165302835569093703}
+  - {fileID: 1901856916}
   m_Father: {fileID: 543450652025887732}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5745207018520052302
