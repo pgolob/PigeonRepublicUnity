@@ -10,6 +10,7 @@ public class GroundTile : MonoBehaviour
     void Start()
     {
         groundSpawner = GameObject.FindObjectOfType<GroundSpawner>();
+        SpawnPerson();
         if (groundSpawner.tilesSpawned > 5)
         {
             SpawnObstacle();
@@ -39,5 +40,29 @@ public class GroundTile : MonoBehaviour
 
         // Spawn the obstace at the position
         Instantiate(obstaclePrefab, spawnPoint.position, Quaternion.identity, transform);
+    }
+
+    public GameObject childPrefab;
+    public GameObject policePrefab;
+    public GameObject manPrefab;
+    public void SpawnPerson () {
+
+        int personIndex = Random.Range(5, 14);
+        Transform spawnPoint = null;
+        Quaternion targetRotation = Quaternion.Euler(0, 90, 0);
+
+        if (personIndex >= 5 && personIndex <= 7) { //child
+            spawnPoint = transform.GetChild(personIndex).transform;
+            Instantiate(childPrefab, spawnPoint.position, targetRotation, transform);
+
+        } else if (personIndex >= 8 && personIndex <= 10) { //policajka
+            spawnPoint = transform.GetChild(personIndex).transform;
+            Instantiate(policePrefab, spawnPoint.position, targetRotation, transform);
+
+        } else if  (personIndex >= 11 && personIndex <= 13) { //man
+            spawnPoint = transform.GetChild(personIndex).transform;
+            Instantiate(manPrefab, spawnPoint.position, targetRotation, transform);
+        }
+
     }
 }
