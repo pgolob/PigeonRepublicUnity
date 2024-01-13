@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MoveObject : MonoBehaviour
 {
-    public float speed = 10f;
+    public float speed = 10f + (PoopSpawn.poopHitCount)*3;
     // Start is called before the first frame update
     void Start()
     {

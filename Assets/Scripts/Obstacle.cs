@@ -12,9 +12,10 @@ public class Obstacle : MonoBehaviour {
 
     private void OnCollisionEnter (Collision collision)
     {
-        Debug.Log("Collision with Eagle_Normal");
-        moveObject.speed = 0;
+        
         if (collision.gameObject.name == "Eagle_Normal") {
+            Debug.Log("Collision with Eagle_Normal");
+            moveObject.speed = 0;
             Animator animator = collision.gameObject.GetComponent<Animator>();
             if (animator != null)
             {
