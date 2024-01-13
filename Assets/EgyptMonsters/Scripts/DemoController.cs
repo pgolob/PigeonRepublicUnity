@@ -171,7 +171,8 @@ public class DemoController : MonoBehaviour
         {
             if (Input.anyKeyDown)
             {
-                Application.LoadLevel(Application.loadedLevelName);
+                //Application.LoadLevel(Application.loadedLevelName);
+                UnityEngine.SceneManagement.SceneManager.LoadScene("SampleScene");
                 yield break;
             }
             else

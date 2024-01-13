@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
+using UnityEngine.UI;
 using UnityEngine;
 
 public class PoopSpawn : MonoBehaviour
@@ -10,6 +11,9 @@ public class PoopSpawn : MonoBehaviour
     public Transform poopSpawnPoint;  // The spawn point for the poop
     public float poopForce = 5f;  // The force with which poop is thrown
     public float poopForwardForce = 2f;
+
+    public static int poopHitCount = 0;
+    public Text hitCountText;
 
     void Update()
     {

@@ -17,7 +17,7 @@ public class GroundSpawner : MonoBehaviour
         //collider.center = new Vector3(40, -60, 4);
         nextSpawnPoint = temp.transform.GetChild(1).transform.position;
         tilesSpawned++;
-        Debug.Log(tilesSpawned);
+        //Debug.Log(tilesSpawned);
     }
     // Start is called before the first frame update
     void Start()
