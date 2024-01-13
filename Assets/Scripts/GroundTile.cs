@@ -10,7 +10,7 @@ public class GroundTile : MonoBehaviour
     void Start()
     {
         groundSpawner = GameObject.FindObjectOfType<GroundSpawner>();
-        spawnObstacle();
+        //spawnObstacle();
   
     }
 
@@ -27,6 +27,7 @@ public class GroundTile : MonoBehaviour
         
     }
 
+    /*
     [SerializeField] GameObject obstaclePrefab;
     public void spawnObstacle(){
         int numObstacles = 10;
@@ -55,4 +56,5 @@ public class GroundTile : MonoBehaviour
         point.y = -60;
         return point;
     }
+    */
 }

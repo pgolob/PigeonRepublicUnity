@@ -14,6 +14,7 @@ public class MoveObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        //transform.Translate(0,0,Vector3.forward * speed * Time.deltaTime);
+        transform.Translate(-Time.deltaTime*speed, 0, 0);
     }
 }

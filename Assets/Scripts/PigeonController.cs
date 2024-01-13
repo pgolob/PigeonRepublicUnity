@@ -25,10 +25,10 @@ public class PigeonController : MonoBehaviour
         transform.Translate((movementHorizontal + movementVertical) * speed * Time.deltaTime, Space.World);
 
         // combined tilt
-        float horizontalTilt = moveHorizontal * tiltAngle;
-        float verticalTilt = moveVertical * tiltAngle;
+        float horizontalTilt = -moveHorizontal * tiltAngle;
+        float verticalTilt = -moveVertical * tiltAngle;
         
-        Quaternion targetRotation = Quaternion.Euler(horizontalTilt - 90, 0, -90);
+        Quaternion targetRotation = Quaternion.Euler(verticalTilt, -90, horizontalTilt);
         
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 2.0f);
 
@@ -36,13 +36,13 @@ public class PigeonController : MonoBehaviour
         if (Mathf.Abs(moveVertical) < 0.001f)
         {
             Vector3 returnPosition = new Vector3(transform.position.x, originalHeight, transform.position.z);
-            transform.position = Vector3.Lerp(transform.position, returnPosition, Time.deltaTime * speed);
+            transform.position = Vector3.Lerp(transform.position, returnPosition, Time.deltaTime * speed/5);
         }
 
         // Reset tilt
         if (Mathf.Abs(moveVertical) < 0.001f && Mathf.Abs(moveHorizontal) < 0.001f)
         {
-            Quaternion uprightRotation = Quaternion.Euler(-90, -90, 0);
+            Quaternion uprightRotation = Quaternion.Euler(0, -90, 0);
             transform.rotation = Quaternion.Slerp(transform.rotation, uprightRotation, Time.deltaTime * 7.0f);
         }
     }
