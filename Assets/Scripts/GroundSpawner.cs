@@ -5,6 +5,7 @@ using UnityEngine;
 public class GroundSpawner : MonoBehaviour
 {
     public GameObject groundTile;
+    public int tilesSpawned = 0;
     Vector3 nextSpawnPoint;
 
     public void SpawnTile()
@@ -15,6 +16,8 @@ public class GroundSpawner : MonoBehaviour
         //collider.size = new Vector3(150, 1, 10);
         //collider.center = new Vector3(40, -60, 4);
         nextSpawnPoint = temp.transform.GetChild(1).transform.position;
+        tilesSpawned++;
+        Debug.Log(tilesSpawned);
     }
     // Start is called before the first frame update
     void Start()

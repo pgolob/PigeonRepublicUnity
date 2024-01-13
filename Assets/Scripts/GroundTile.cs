@@ -10,7 +10,11 @@ public class GroundTile : MonoBehaviour
     void Start()
     {
         groundSpawner = GameObject.FindObjectOfType<GroundSpawner>();
-        //spawnObstacle();
+        if (groundSpawner.tilesSpawned > 5)
+        {
+            SpawnObstacle();
+            //Debug.Log(groundSpawner.tilesSpawned);
+        }
   
     }
 
@@ -27,34 +31,13 @@ public class GroundTile : MonoBehaviour
         
     }
 
-    /*
-    [SerializeField] GameObject obstaclePrefab;
-    public void spawnObstacle(){
-        int numObstacles = 10;
-        for (int i = 0; i < numObstacles; i++) {
-            GameObject prefabToSpawn = PrefabManager.Instance.obstaclePrefab;
-            if (prefabToSpawn != null) {
-                GameObject temp = Instantiate(prefabToSpawn, transform);
-                temp.transform.position = GetRandomPointInCollider(GetComponent<Collider>());
-                Debug.Log(temp.transform.position);
-            } else {
-                Debug.LogError("Obstacle Prefab is not assigned in PrefabManager");
-            }
-        }
-    }
-    Vector3 GetRandomPointInCollider (Collider collider)
-    {
-        Vector3 point = new Vector3(
-            Random.Range(collider.bounds.min.x, collider.bounds.max.x),
-            Random.Range(collider.bounds.min.y, collider.bounds.max.y),
-            Random.Range(collider.bounds.min.z, collider.bounds.max.z)
-            );
-        if (point != collider.ClosestPoint(point)) {
-            point = GetRandomPointInCollider(collider);
-        }
+    
+    public GameObject obstaclePrefab;
+    public void SpawnObstacle () {
+        int obstacleSpawnIndex = Random.Range(2, 5);
+        Transform spawnPoint = transform.GetChild(obstacleSpawnIndex).transform;
 
-        point.y = -60;
-        return point;
+        // Spawn the obstace at the position
+        Instantiate(obstaclePrefab, spawnPoint.position, Quaternion.identity, transform);
     }
-    */
 }
