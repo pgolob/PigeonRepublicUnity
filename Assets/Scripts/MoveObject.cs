@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MoveObject : MonoBehaviour
 {
@@ -16,6 +17,11 @@ public class MoveObject : MonoBehaviour
     {
         //transform.Translate(0,0,Vector3.forward * speed * Time.deltaTime);
         float hits = PoopSpawn.poopHitCount;
-        transform.Translate(-Time.deltaTime*speed - hits * (float)0.02, 0, 0);
+        if(speed != 0) {
+            transform.Translate(-Time.deltaTime*speed - hits * (float)0.02, 0, 0);
+        } else {
+            transform.Translate(-Time.deltaTime*speed, 0, 0);
+        }
+
     }
 }

@@ -16,13 +16,13 @@ public class PoopCollisionHandler : MonoBehaviour
             // Increment the hit count
             PoopSpawn.poopHitCount++;
             Debug.Log("poopcounter: " + PoopSpawn.poopHitCount);
-            
+            /* 
             Animator animator = collision.gameObject.GetComponent<Animator>();
             if (animator != null)
             {
                 Debug.Log("stop");
                 animator.SetTrigger("hit");
-            }
+            } */
             // You may want to play a sound, spawn a particle effect, etc.
 
             // Destroy the poop
