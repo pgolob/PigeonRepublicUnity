@@ -8,13 +8,13 @@ public class PoopCollisionHandler : MonoBehaviour
     public GameObject poopMarkPrefab;  // Reference to the poop mark prefab
     public float poopMarkDuration = 5f;
 
-
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("ppl"))
         {
             // Increment the hit count
             PoopSpawn.poopHitCount++;
+
             Debug.Log("poopcounter: " + PoopSpawn.poopHitCount);
             /* 
             Animator animator = collision.gameObject.GetComponent<Animator>();
