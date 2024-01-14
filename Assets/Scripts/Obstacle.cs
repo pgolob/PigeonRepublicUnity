@@ -5,11 +5,9 @@ using UnityEngine;
 public class Obstacle : MonoBehaviour {
 
     MoveObject moveObject;
-    EndGame endGame;
 
 	private void Start () {
         moveObject = GameObject.FindObjectOfType<MoveObject>();
-        endGame = GameObject.FindObjectOfType<EndGame>();
 	}
 
     private void OnCollisionEnter (Collision collision)
@@ -23,7 +21,6 @@ public class Obstacle : MonoBehaviour {
             {
                 animator.SetTrigger("Collided");
             }
-            endGame.die();
         }
     }
 
